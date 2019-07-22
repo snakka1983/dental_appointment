@@ -1,0 +1,60 @@
+For this assignment, we'd like you to:
+  Create an HTTP REST API that can create and read Dental appointments.
+  The appointments can be stored in your preferred database or in memory
+
+The appointments should conform to the following interface:
+
+DentalAppointment
+  ```
+    startTime: DateTime or unix timestamp
+    endTime: DateTime or unix timestamp
+    dentistId: Int
+    patientId: Int
+  ```
+
+#### Constraints
+
+    - startTime and endTime must both be valid times, and in the future
+    - A dental appointment should be at least 30 minutes
+    - Two appointments for the same dentist can't start at the same time (apppointments CAN overlap, but 2 appointments for 1 dentist should not start at the exact same time
+
+Examples:
+
+Create Request 
+
+Request Body:
+POST /dentalAppointments/
+```
+{
+  "startTime": 1560280829872, 
+  "endTime": 1560280845884,
+  "dentist_id": 1,
+  "patient_id": 2
+}
+```
+
+Response Body:
+(Should return 201 or 200)
+```
+{
+  "id": 1
+  "startTime": 1560280829872,
+  "endTime": 1560280845884,
+  "dentist_id": 1,
+  "patient_id": 2
+}
+```
+
+
+Read Request 
+
+GET /dentalAppointments/1/
+```
+{
+  "id": 1
+  "startTime": 1560280829872,
+  "endTime": 1560280845884,
+  "dentist_id": 1,
+  "patient_id": 2
+}
+```

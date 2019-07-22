@@ -1,0 +1,13 @@
+CREATE DATABASE  IF NOT EXISTS dental_appointment 
+USE dental_appointment;
+
+DROP TABLE IF EXISTS Appointment;
+
+CREATE TABLE Appointment (     
+	id int NOT NULL AUTO_INCREMENT,     
+	startTime timestamp,     
+	endTime timestamp,     
+	dentistId int,     
+	patientId int,
+	PRIMARY KEY (id)
+);
